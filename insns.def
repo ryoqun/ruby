@@ -397,7 +397,7 @@ concatstrings
     val = rb_str_new(0, 0);
     while (i-- > 0) {
 	const VALUE v = TOPN(i);
-	rb_str_append(val, v);
+	val = rb_funcall(val, rb_intern("+"), 1, v);
     }
     POPN(num);
 }
